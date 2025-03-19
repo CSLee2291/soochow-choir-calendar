@@ -1,0 +1,36 @@
+{
+  "name": "soochow-choir-calendar",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^14.0.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "axios": "^1.6.2",
+    "moment": "^2.29.4",
+    "date-fns": "^2.30.0",
+    "google-auth-library": "^9.0.0",
+    "googleapis": "^129.0.0",
+    "ics": "^3.5.0",
+    "react-big-calendar": "^1.8.5",
+    "next-i18next": "^14.0.3",
+    "react-i18next": "^13.2.2",
+    "i18next": "^23.7.6"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.2",
+    "@types/react": "^18.2.39",
+    "@types/node": "^20.10.1",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5",
+    "eslint": "^8.54.0",
+    "eslint-config-next": "^14.0.3"
+  }
+}

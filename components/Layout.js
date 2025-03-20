@@ -12,16 +12,17 @@ const Layout = ({ children }) => {
         <title>{t('title')}</title>
         <meta name="description" content={t('title')} />
         <link rel="icon" href="/favicon.ico" />
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet" />
       </Head>
 
-      <header className="bg-white shadow-md">
-        <div className="container mx-auto p-4 flex flex-col md:flex-row justify-between items-center">
-          <h1 className="text-2xl font-bold text-accent mb-4 md:mb-0">{t('title')}</h1>
+      <header className="relative w-full bg-gradient-to-b from-white to-gray-50 shadow-md py-8">
+        <h1 className="site-title text-3xl font-bold text-accent">{t('title')}</h1>
+        <div className="lang-switcher-container">
           <LanguageSwitcher />
         </div>
       </header>
 
-      <main className="container mx-auto p-4">
+      <main className="container mx-auto p-4 max-w-6xl">
         {children}
       </main>
 

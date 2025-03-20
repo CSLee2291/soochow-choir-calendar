@@ -10,6 +10,7 @@ export default function Home() {
   const { t } = useTranslation('common');
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selectedTab, setSelectedTab] = useState(0);
   
   useEffect(() => {
     const loadEvents = async () => {
@@ -30,8 +31,8 @@ export default function Home() {
   }, []);
   
   return (
-    <div>
-      <h1 className="text-2xl font-bold mb-6">{t('calendar')}</h1>
+    <div className="text-center max-w-7xl mx-auto px-4">
+      <h1 className="text-2xl font-bold mb-6 w-full text-center text-accent">{t('calendar')}</h1>
       
       {loading ? (
         <div className="flex justify-center items-center h-64">
@@ -42,7 +43,33 @@ export default function Home() {
       )}
       
       <ExportCalendar />
-      <HowToUse />
+      
+      <div className="mt-12">
+        <div className="w-full mx-auto text-center mb-8">
+          <div className="inline-flex border border-gray-300 rounded-lg overflow-hidden shadow-md mx-auto">
+            <button
+              onClick={() => setSelectedTab(0)}
+              className={`${selectedTab === 0 
+                ? 'bg-accent text-white' 
+                : 'bg-white text-gray-700 hover:bg-gray-100'} 
+                py-4 px-10 text-lg font-medium transition-colors duration-200`}
+            >
+              {t('calendar')}
+            </button>
+            <button
+              onClick={() => setSelectedTab(1)}
+              className={`${selectedTab === 1 
+                ? 'bg-accent text-white' 
+                : 'bg-white text-gray-700 hover:bg-gray-100'} 
+                py-4 px-10 text-lg font-medium transition-colors duration-200`}
+            >
+              {t('howToUse')}
+            </button>
+          </div>
+        </div>
+        
+        {selectedTab === 0 ? null : <HowToUse />}
+      </div>
     </div>
   );
 }

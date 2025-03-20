@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+.site-title {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+  font-family: 'Noto Sans TC', sans-serif;
+  letter-spacing: 0.05em;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.lang-switcher-container {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 20;
+}
+
 :root {
   --primary-color: #4a5568;
   --secondary-color: #718096;
@@ -14,7 +31,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
@@ -31,7 +48,13 @@ a {
 
 .calendar-container {
   height: 70vh;
-  margin: 2rem 0;
+  margin: 2rem auto;
+  max-width: 1000px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  overflow: hidden;
 }
 
 .rbc-calendar {
@@ -55,36 +78,16 @@ a {
 
 .export-buttons {
   display: flex;
-  flex-wrap: wrap;
   gap: 1rem;
   margin: 1rem 0;
 }
 
-.export-button {
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  background-color: var(--accent-color);
-  color: white;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  transition: background-color 0.2s;
-}
-
-.export-button:hover {
-  background-color: #553c9a;
-}
-
 .steps-container {
-  margin: 2rem 0;
+  margin: 0;
 }
 
 .step {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 1.5rem;
+  position: relative;
 }
 
 .step-number {
@@ -96,27 +99,40 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 1rem;
   flex-shrink: 0;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .step-content {
   flex: 1;
 }
 
+.instruction-svg-container svg {
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+}
+
 .language-switcher {
   display: flex;
-  gap: 1rem;
-  margin: 1rem 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .language-button {
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.25rem;
+  flex: 1;
   cursor: pointer;
   border: 1px solid var(--accent-color);
   color: var(--accent-color);
-  transition: all 0.2s;
+  transition: all 0.3s;
+  font-weight: 500;
+}
+
+.language-button:hover {
+  background-color: rgba(107, 70, 193, 0.1);
 }
 
 .language-button.active {
@@ -131,5 +147,27 @@ a {
   
   .export-buttons {
     flex-direction: column;
+  }
+  
+  .language-switcher {
+    max-width: 160px;
+  }
+  
+  .lang-switcher-container {
+    position: static;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .site-title {
+    position: static;
+    margin-bottom: 10px;
+  }
+  
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }

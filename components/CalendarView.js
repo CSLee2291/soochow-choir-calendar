@@ -19,12 +19,25 @@ const CalendarView = ({ events }) => {
   }, [i18n.language]);
 
   const handleSelectEvent = (event) => {
-    setSelectedEvent(event);
-    setIsModalOpen(true);
+    if (!event) return;
+    try {
+      setSelectedEvent(event);
+      setIsModalOpen(true);
+    } catch (error) {
+      console.error('Error opening event modal:', error);
+    }
   };
 
   const closeModal = () => {
-    setIsModalOpen(false);
+    try {
+      setIsModalOpen(false);
+      // Add a small delay before clearing the selected event to ensure smooth transition
+      setTimeout(() => {
+        setSelectedEvent(null);
+      }, 300);
+    } catch (error) {
+      console.error('Error closing modal:', error);
+    }
   };
 
   // Customize calendar messages based on language

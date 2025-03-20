@@ -14,15 +14,15 @@ const LanguageSwitcher = () => {
   };
 
   return (
-    <div className="language-switcher">
+    <div className="language-switcher flex">
       <button
-        className={`language-button ${currentLocale === 'en' ? 'active' : ''}`}
+        className={`language-button ${currentLocale === 'en' ? 'active' : ''} text-sm py-1 px-3 rounded-l-lg`}
         onClick={() => changeLanguage('en')}
       >
         English
       </button>
       <button
-        className={`language-button ${currentLocale === 'zh' ? 'active' : ''}`}
+        className={`language-button ${currentLocale === 'zh' ? 'active' : ''} text-sm py-1 px-3 rounded-r-lg`}
         onClick={() => changeLanguage('zh')}
       >
         中文
